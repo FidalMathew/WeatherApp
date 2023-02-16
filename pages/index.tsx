@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Content from '../components/Content'
 import Forecast from '../components/Forecast'
-import Heading from '../components/Heading'
 import History from '../components/History'
 import styles from '../styles/Home.module.css'
 
