@@ -104,16 +104,20 @@
   justify-content: space-around;
   align-items: center;
   padding-top: 30px;
+  width: 100%;
+  overflow: auto;
 }
 
 .forecastCard {
   padding: 30px;
   background: #aae1ff;
   border-radius: 10px;
-  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
   height: 200px;
   text-align: center;
   position: relative;
+  margin-left: 20px;
 }
 
 .dayName {
@@ -124,4 +128,13 @@
   position: absolute;
   bottom: 20px;
   left: 25%;
+}
+
+/* History  */
+
+.historyBtn {
+  text-align: center;
+  font-weight: 500;
+  padding-top: 30px;
+  cursor: pointer;
 }

@@ -14,6 +14,7 @@ import snowyImg from '../assets/snowy.png'
 import thunderstormImg from '../assets/thunderstorm.png'
 import mistImg from '../assets/mist.png'
 
+import arrowDown from '../assets/arrow-down.png'
 
 const Home: NextPage = () => {
 
@@ -41,6 +42,10 @@ const Home: NextPage = () => {
 
   const [isCelsius, setIsCelsius] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
+  const [showHistory, setShowHistory] = useState<boolean>(false);
+  const [cities, setCities] = useState<string[]>([]); // ["London", "New York", "Tokyo" ]
+
+
   const [forecast, setForecast] = useState<IForecast[]>([]);
 
   const [weather, setWeather] = useState<IWeather>({
@@ -99,6 +104,25 @@ const Home: NextPage = () => {
   }, [finalCity])
 
 
+  useEffect(() => {
+
+    const fetchCities = async () => {
+
+      try {
+        const res = await fetch("https://countriesnow.space/api/v0.1/countries/population/cities");
+        const result = await res.json();
+        const cities = result.data.map((item: any) => item.city);
+        // console.log(cities);
+        setCities(cities);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchCities();
+  }, [])
+
+
   const weatherImage = (str: string) => {
 
     str = str.toLowerCase();
@@ -121,7 +145,10 @@ const Home: NextPage = () => {
         <div className={styles.heading}>
           <div className={styles.head1}> WeatherAPI</div>
           <div className={styles.search}>
-            <input type="text" className={styles.input} onChange={updateCity} value={city} />
+            <input type="text" className={styles.input} onChange={updateCity} value={city} list="citymap" />
+            <datalist id="citymap" >
+              {cities.map((item, index) => <option key={index} value={item} />)}
+            </datalist>
             <button className={styles.searchBtn} onClick={submitCity}>
 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" className="bi bi-search" viewBox="0 0 16 16">
@@ -134,10 +161,16 @@ const Home: NextPage = () => {
         {isError &&
           <div className={styles.error}>Please enter a valid city
           </div>}
-
         <Content weather={weather} isCelsius={isCelsius} setIsCelsius={setIsCelsius} weatherImg={weatherImage} />
         <Forecast forecast={forecast} isCelsius={isCelsius} weatherImg={weatherImage} />
-        <History />
+        {
+          finalCity && (showHistory ?
+            <History /> :
+            <div className={styles.historyBtn} onClick={() => setShowHistory(true)}>
+              <div className={styles.historyText}>History</div>
+              <Image src={arrowDown} alt="arrow-down" width={20} height={20} />
+            </div>)
+        }
       </div>
     </div>
   )
