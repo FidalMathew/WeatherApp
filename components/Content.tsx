@@ -1,15 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
-import sunnyImg from '../assets/sunny.png'
 import Image from 'next/image';
-
-interface IWeather {
-    temp_c: number;
-    temp_f: number;
-    condition: string;
-    wind_kph: number;
-    humidity: number;
-}
 
 function Content(props: any) {
 

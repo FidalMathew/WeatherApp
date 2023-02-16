@@ -165,7 +165,8 @@ const Home: NextPage = () => {
         <Forecast forecast={forecast} isCelsius={isCelsius} weatherImg={weatherImage} />
         {
           finalCity && (showHistory ?
-            <History /> :
+            <History finalCity={finalCity} isCelsius={isCelsius} weatherImg={weatherImage} /> :
+
             <div className={styles.historyBtn} onClick={() => setShowHistory(true)}>
               <div className={styles.historyText}>History</div>
               <Image src={arrowDown} alt="arrow-down" width={20} height={20} />
