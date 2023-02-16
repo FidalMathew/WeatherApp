@@ -16,6 +16,7 @@ function Content(props: any) {
     // console.log(props.weather)
     const changeTemp = () => {
         props.setIsCelsius(!props.isCelsius);
+        localStorage.setItem('isCelsius', JSON.stringify(!props.isCelsius));
     }
 
     function capitalizeFirstLetter(str : string) {

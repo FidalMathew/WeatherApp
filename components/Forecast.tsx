@@ -3,8 +3,6 @@ import styles from '../styles/Home.module.css'
 function Forecast(props: any) {
 
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-    console.log("Forecast", props.forecast)
   return (
     <div className={styles.forecastContainer}>
         {props.forecast.map((item: any, index: number) => {

@@ -29,14 +29,14 @@ const Home: NextPage = () => {
   
   const [city, setCity] = useState<string>("");
   const [finalCity, setFinalCity] = useState<string>("");
+
+
   const [isCelsius, setIsCelsius] = useState<boolean>(true);
   const [forecast, setForecast] = useState<IForecast[]>([]);
 
   const [weather, setWeather] = useState<IWeather>({
     temp_c: 0, temp_f: 0, condition: "", wind_kph: 0, humidity: 0, finalCity: ""
 })
-
-
 
   const updateCity = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
@@ -47,6 +47,10 @@ const Home: NextPage = () => {
     setCity("");
   }
 
+  useEffect(() => {
+    const stored = localStorage.getItem("isCelsius");
+    setIsCelsius(stored ? JSON.parse(stored) : isCelsius);
+}, [isCelsius]);
 
 
 useEffect(() => {
