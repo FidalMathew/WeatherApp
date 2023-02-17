@@ -21,7 +21,7 @@ function History(props: any) {
         console.log("DASda", props.finalCity);
         if (props.finalCity === "") return;
         try {
-            const res = await fetch(`http://api.weatherapi.com/v1/history.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${props.finalCity}&dt=${dt}`);
+            const res = await fetch(`https://api.weatherapi.com/v1/history.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${props.finalCity}&dt=${dt}`);
             const result = await res.json();
             let val = {
                 date: result.forecast.forecastday[0].date.toString(),

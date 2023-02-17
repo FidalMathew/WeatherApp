@@ -71,7 +71,7 @@ const Home: NextPage = () => {
     const fetchForcast = async () => {
       try {
         if (finalCity === "") return;
-        const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${finalCity}&days=5&aqi=no&alerts=no`);
+        const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${finalCity}&days=5&aqi=no&alerts=no`);
         const result = await res.json()
         setWeather({
           temp_c: result.current.temp_c,
