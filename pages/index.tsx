@@ -163,7 +163,7 @@ const Home: NextPage = () => {
           </div>}
         <Content weather={weather} isCelsius={isCelsius} setIsCelsius={setIsCelsius} weatherImg={weatherImage} />
         <Forecast forecast={forecast} isCelsius={isCelsius} weatherImg={weatherImage} />
-        {
+        {/* {
           finalCity && (showHistory ?
             <History finalCity={finalCity} isCelsius={isCelsius} weatherImg={weatherImage} /> :
 
@@ -171,7 +171,7 @@ const Home: NextPage = () => {
               <div className={styles.historyText}>History</div>
               <Image src={arrowDown} alt="arrow-down" width={20} height={20} />
             </div>)
-        }
+        } */}
       </div>
     </div>
   )

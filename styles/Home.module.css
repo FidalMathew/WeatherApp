@@ -9,7 +9,7 @@
 
 .home {
   width: 70%;
-  height: 80vh;
+  min-height: 80vh;
   background: white;
   border-radius: 2em;
   padding: 2em 3em;
@@ -22,6 +22,7 @@
   justify-content: space-around;
   align-items: center;
   padding-bottom: 2em;
+  flex-wrap: wrap;
 }
 
 .search {
@@ -78,6 +79,7 @@
 .weatherDetails {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .values {
