@@ -7,3 +7,7 @@
 2. Set environment variables in `.env.local` file, set `NEXT_PUBLIC_API_KEY`
 
 3. Run the project: `npm run dev`
+
+Deployment link: https://weather-app-tau-jet.vercel.app/
+
+Github link: https://github.com/FidalMathew/WeatherApp
